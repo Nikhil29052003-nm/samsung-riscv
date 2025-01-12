@@ -2,7 +2,7 @@
 
 This is a RISC-V Talent Development Program, powered by Samsung Semiconductor India Research (SSIR) along with VLSI System Design (VSD).
 
-##Basic Details About Me
+Basic Details About Me
 
 Name: NIKHIL.N.M
 
@@ -14,3 +14,6 @@ LinkedIN Profile: Nikhil N M
 
 Task 1:
 Install the RISC-V toolchain using the VDI link, then compile the C code using both the normal GCC compiler and the RISC-V GCC compiler to compare the results. Refer to the provided C-based and RISC-V lab videos for guidance on completing the task.
+
+Task 2:
+Using SPIKE simulation tool to verify output of the code with respect to gcc-compiler output and understanding of assmebly code calculations on register using the SPIKE.
