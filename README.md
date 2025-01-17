@@ -17,6 +17,8 @@ Install the RISC-V toolchain using the VDI link, then compile the C code using b
 
 Task 2:
 Using SPIKE simulation tool to verify output of the code with respect to gcc-compiler output and understanding of assmebly code calculations on register using the SPIKE.
+</details>
+<details>
 <summary><b>Task 3:</b> Understand the RISC-V Instruction set. </summary>   
 <br>
 
