@@ -406,3 +406,95 @@ This is the instruction table divided with respect to registers bit columns:
 
 * This completes the breakdown for all 15 instructions!
 </details>
+
+<details>
+<summary><b>Task 4:</b> By making use of RISCV Core: Verilog Netlist and Testbench, perform an experiment of Functional Simulation and observe the waveforms</summary>  
+<br>
+
+>***NOTE:** Since the designing of RISCV Architecture and writing it's testbench is not the part of this Research Internship, so we will use the Verilog Code and Testbench of RISCV that has already been designed. The reference GitHub repository is : [iiitb_rv32i](https://github.com/vinayrayapati/rv32i/)*    
+  
+### Steps to perform functional simulation of RISCV  
+1. Create a new directory with your name ```mkdir <your_name>```
+2. Create two files by using ```gvim``` command as ```iiitb_rv32i.v``` and ```iiitb_rv32i_tb.v```  
+3. Copy the code from the reference github repo and paste it in your verilog and testbench files  
+  
+  
+4. To run and simulate the verilog code, enter the following command:  
+	```
+	$ iverilog -o dsn iiitb_rv32i.v iiitb_rv32i_tb.v
+	$ vvp dsn
+	```
+![Screenshot 2025-01-23 222201](https://github.com/user-attachments/assets/c3a89dd2-c782-4597-861e-a6c93fcf9756)
+ 
+5. To see the simulation waveform in GTKWave, enter the following command:
+	```
+	$ gtkwave iiitb_rv32i.vcd
+	```
+6. The GTKWave will be opened and following window will be appeared 
+
+![image](https://github.com/user-attachments/assets/7bf25565-654f-4592-8f20-cbcf1a689038)
+    
+#### As shown in the figure below, all the instructions in the given verilog file is hard-coded. Hard-coded means that instead of following the RISCV specifications bit pattern, the designer has hard-coded each instructions based on their own pattern. Hence the 32-bits instruction that we generated in Task-3 will not match with the given instruction.  
+  
+<img width="500" alt="Instructions" src="https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/24cc896a-7817-4941-be7f-95d44c35d4d8">
+  
+#### Following are the differences between standard RISCV ISA and the Instruction Set given in the reference repository:  
+  
+|  **Operation**  |  **Standard RISCV ISA**  |  **Hardcoded ISA**  |  
+|  :----:  |  :----:  |  :----:  |  
+|  ADD R6, R2, R1  |  32'h00110333  |  32'h02208300  |  
+|  SUB R7, R1, R2  |  32'h402083b3  |  32'h02209380  |  
+|  AND R8, R1, R3  |  32'h0030f433  |  32'h0230a400  |  
+|  OR R9, R2, R5  |  32'h005164b3  |  32'h02513480  |  
+|  XOR R10, R1, R4  |  32'h0040c533  |  32'h0240c500  |  
+|  SLT R1, R2, R4  |  32'h0045a0b3  |  32'h02415580  |  
+|  ADDI R12, R4, 5  |  32'h004120b3  |  32'h00520600  |  
+|  BEQ R0, R0, 15  |  32'h00000f63  |  32'h00f00002  |  
+|  SW R3, R1, 2  |  32'h0030a123  |  32'h00209181  |  
+|  LW R13, R1, 2  |  32'h0020a683  |  32'h00208681  |  
+|  SRL R16, R14, R2  |  32'h0030a123  |  32'h00271803  |
+|  SLL R15, R1, R2  |  32'h002097b3  |  32'h00208783  |   
+  
+
+#### *Analysing the Output Waveform of various instructions*  
+**```Instruction 1: ADD R6, R2, R1```**  
+  
+![ADD](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/fff34786-9f52-488b-827d-9516ba655ed1)
+
+**```Instruction 2: SUB R7, R1, R2```**  
+  
+![SUB](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/a4ce7d65-1e61-4a35-9e9f-9941de9d6e19)
+
+**```Instruction 3: AND R8, R1, R3```**  
+
+![AND](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/28706b39-2cfa-4b29-b0ac-6c1bbc1cbbe9)
+
+**```Instruction 4: OR R9, R2, R5```**  
+
+![OR](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/617b18d4-35f8-42e4-8294-b8259042f1d6)
+
+**```Instruction 5: XOR R10, R1, R4```**  
+
+![XOR](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/724f6c43-6f5c-4be2-899a-061b202cbf34)
+
+**```Instruction 6: SLT R1, R2, R4```**  
+
+![SLT](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/6d0a3063-9a8c-49e2-84ab-eb8f99875d0a)
+
+**```Instruction 7: ADDI R12, R4, 5```**  
+
+![ADDI](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/d8287e99-05d4-4140-b4bc-844da65fe1c8)
+
+**```Instruction 8: BEQ R0, R0, 15```**  
+  
+![BEQ](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/583e69e5-88ef-4853-8a3b-a282bb8cc90f)
+ 
+**```Instruction 9: BNE R0, R1, 20```**
+
+![BNE](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/d09128b6-172a-4b3a-bfa6-2364142bb9f8)
+  
+**```Instruction 10: SLL R15, R1, R2```**  
+
+![SLL](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/885a63bc-485e-4594-8d15-52f2ec8da800)
+
+</details>  
