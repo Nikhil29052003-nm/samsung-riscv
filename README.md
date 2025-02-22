@@ -498,3 +498,67 @@ This is the instruction table divided with respect to registers bit columns:
 ![SLL](https://github.com/maazm007/vsdsquadron-mini-internship/assets/83294849/885a63bc-485e-4594-8d15-52f2ec8da800)
 
 </details>  
+<details>
+<summary><b>Task 5:</b>  🚗 Smart Collision Avoidance & Lane Departure Warning System </summary>  
+
+## 📌 Overview  
+This project is designed to enhance vehicle safety by using an **ultrasonic sensor** for **collision detection** and an **IR sensor** for **lane departure warnings**. The system runs on the **VSDSquadron Mini RISC-V board** and provides real-time feedback via an **LCD display and a buzzer**.  
+
+### ✨ Features  
+- **Collision Detection:** Ultrasonic sensor detects nearby objects and triggers an alert.  
+- **Lane Departure Warning:** IR sensor detects lane markings and alerts the driver if the vehicle moves off track.  
+- **LCD Display:** Shows warnings such as "Collision Warning!" and "Lane Departure!"  
+- **Buzzer Alert:** Provides an audible warning for hazards.  
+
+---
+
+## 📦 List of Components  
+
+| **Component**             | **Quantity** | **Specification/Notes**            |
+|---------------------------|-------------|------------------------------------|
+| **VSDSquadron Mini Board** | 1           | CH32V003, CH32V00x Series        |
+| **Ultrasonic Sensor (HC-SR04)** | 1  | Detects nearby obstacles          |
+| **IR Sensor Module (TCRT5000 or similar)** | 1 | Detects lane departure            |
+| **LCD Display (I2C 16x2)** | 1           | Displays warning messages         |
+| **Buzzer**                | 1           | Active Buzzer (3.3V/5V)          |
+| **Resistors**             | 2           | 10kΩ Pull-ups (if required)       |
+| **Jumper Wires**          | As needed   | For connections                   |
+| **Power Supply**          | 1           | 3.3V / 5V source                  |
+
+---
+
+## 🔌 Pin Connections  
+
+| **Component**         | **MCU Pin** | **Port & Pin**  | **Direction** | **Description** |
+|----------------------|------------|-----------------|--------------|---------------|
+| **Ultrasonic Trigger** | PD4        | GPIOD, Pin 4    | Output       | Sends trigger pulse |
+| **Ultrasonic Echo**    | PD3        | GPIOD, Pin 3    | Input        | Receives reflected pulse |
+| **IR Sensor**         | PD5        | GPIOD, Pin 5    | Input        | Detects lane markings |
+| **LCD SDA**          | PC1        | GPIOC, Pin 1    | Output       | I2C Data Line |
+| **LCD SCL**          | PC2        | GPIOC, Pin 2    | Output       | I2C Clock Line |
+| **Buzzer**           | PD2        | GPIOD, Pin 2    | Output       | Alerts driver |
+| **Power**            | VCC        | 3.3V / 5V       | -           | Power Supply |
+| **Ground**           | GND        | GND             | -           | Common Ground |
+
+---
+
+## 🚀 How It Works  
+
+1. **System Initialization:**  
+   - GPIO pins are configured.  
+   - LCD and sensors are initialized.  
+
+2. **Collision Detection:**  
+   - The ultrasonic sensor measures distance.  
+   - If an object is closer than **10 cm**, a **buzzer sounds** and the **LCD displays "Collision Warning!"**  
+
+3. **Lane Departure Detection:**  
+   - The IR sensor monitors lane markings.  
+   - If the vehicle **departs from the lane**, a warning message is displayed and the buzzer activates.  
+
+4. **Continuous Monitoring:**  
+   - The system **checks sensor data in real-time** and updates alerts accordingly.  
+---
+![pin connection](https://github.com/user-attachments/assets/fa0eb595-2343-474f-8d2d-b448e8f6d4b2)
+
+</details> 
