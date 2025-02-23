@@ -12,10 +12,10 @@ Email ID: nikhilnm.2905@gmail.com
 
 LinkedIN Profile: Nikhil N M
 
-Task 1:
+<summary><b>  Task 1:</b></summary>
 Install the RISC-V toolchain using the VDI link, then compile the C code using both the normal GCC compiler and the RISC-V GCC compiler to compare the results. Refer to the provided C-based and RISC-V lab videos for guidance on completing the task.
 
-Task 2:
+<summary><b>Task 2:</b></summary>
 Using SPIKE simulation tool to verify output of the code with respect to gcc-compiler output and understanding of assmebly code calculations on register using the SPIKE.
 </details>
 <details>
